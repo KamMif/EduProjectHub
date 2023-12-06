@@ -29,27 +29,27 @@ export default function Banner(props: {
 			</Text>
 			<Flex w='max-content' mx='auto' mt='26px'>
 				<Flex mx='auto' me='60px' alignItems='center' flexDirection='column'>
-					<Text color={textColorPrimary} fontSize='2xl' fontWeight='700'>
+					<Text color={textColorPrimary} fontSize='xl' fontWeight='700'>
 						{posts}
 					</Text>
 					<Text color={textColorSecondary} fontSize='sm' fontWeight='400'>
-						Posts
+						Курс
 					</Text>
 				</Flex>
 				<Flex mx='auto' me='60px' alignItems='center' flexDirection='column'>
-					<Text color={textColorPrimary} fontSize='2xl' fontWeight='700'>
+					<Text color={textColorPrimary} fontSize='xl' fontWeight='700'>
 						{followers}
 					</Text>
 					<Text color={textColorSecondary} fontSize='sm' fontWeight='400'>
-						Followers
+						Форма обучения
 					</Text>
 				</Flex>
 				<Flex mx='auto' alignItems='center' flexDirection='column'>
-					<Text color={textColorPrimary} fontSize='2xl' fontWeight='700'>
+					<Text color={textColorPrimary} fontSize='xl' fontWeight='700'>
 						{following}
 					</Text>
 					<Text color={textColorSecondary} fontSize='sm' fontWeight='400'>
-						Following
+						Руководитель проекта
 					</Text>
 				</Flex>
 			</Flex>

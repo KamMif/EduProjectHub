@@ -9,7 +9,6 @@ import {
 } from '@tanstack/react-table';
 // Custom components
 import Card from 'components/card/Card';
-import Menu from 'components/menu/MainMenu';
 import * as React from 'react';
 // Assets
 import { MdCancel, MdCheckCircle, MdOutlineError } from 'react-icons/md';
@@ -19,7 +18,7 @@ import { MdCancel, MdCheckCircle, MdOutlineError } from 'react-icons/md';
 type RowObj = {
 	name: string;
 	status: string;
-	date: string; 
+	date: string;
 	progress: number;
 };
 
@@ -41,7 +40,7 @@ export default function ComplexTable(props: { tableData: any }) {
 					align='center'
 					fontSize={{ sm: '10px', lg: '12px' }}
 					color='gray.400'>
-					NAME
+					Название
 				</Text>
 			),
 			cell: (info: any) => (
@@ -60,7 +59,7 @@ export default function ComplexTable(props: { tableData: any }) {
 					align='center'
 					fontSize={{ sm: '10px', lg: '12px' }}
 					color='gray.400'>
-					STATUS
+					Статус
 				</Text>
 			),
 			cell: (info) => (
@@ -70,20 +69,20 @@ export default function ComplexTable(props: { tableData: any }) {
 					h='24px'
 					me='5px'
 					color={
-						info.getValue() === 'Approved' ? (
+						info.getValue() === 'Создан' || info.getValue() === 'В работе' ? (
 							'green.500'
-						) : info.getValue() === 'Disable' ? (
+						) : info.getValue() === 'На паузе' ? (
 							'red.500'
-						) : info.getValue() === 'Error' ? (
+						) : info.getValue() === 'Завершен' ? (
 							'orange.500'
 						) : null
 					}
 					as={
-						info.getValue() === 'Approved' ? (
+						info.getValue() === 'Создан' ? (
 							MdCheckCircle
-						) : info.getValue() === 'Disable' ? (
+						) : info.getValue() === 'На паузе' ? (
 							MdCancel
-						) : info.getValue() === 'Error' ? (
+						) : info.getValue() === 'Завершен' ? (
 							MdOutlineError
 						) : null
 					}
@@ -91,7 +90,7 @@ export default function ComplexTable(props: { tableData: any }) {
 				<Text color={textColor} fontSize='sm' fontWeight='700'>
 					{info.getValue()}
 				</Text>
-			</Flex> 
+			</Flex>
 			)
 		}),
 		columnHelper.accessor('date', {
@@ -102,7 +101,7 @@ export default function ComplexTable(props: { tableData: any }) {
 					align='center'
 					fontSize={{ sm: '10px', lg: '12px' }}
 					color='gray.400'>
-					DATE
+					Дата публикации
 				</Text>
 			),
 			cell: (info) => (
@@ -119,7 +118,7 @@ export default function ComplexTable(props: { tableData: any }) {
 					align='center'
 					fontSize={{ sm: '10px', lg: '12px' }}
 					color='gray.400'>
-					PROGRESS
+					Прогресс
 				</Text>
 			),
 			cell: (info) => (
@@ -129,7 +128,7 @@ export default function ComplexTable(props: { tableData: any }) {
 			)
 		})
 	];
-	const [ data, setData ] = React.useState(() => [ ...defaultData ]);
+	const [ data ] = React.useState(() => [ ...defaultData ]);
 	const table = useReactTable({
 		data,
 		columns,
@@ -144,10 +143,6 @@ export default function ComplexTable(props: { tableData: any }) {
 	return (
 		<Card flexDirection='column' w='100%' px='0px' overflowX={{ sm: 'scroll', lg: 'hidden' }}>
 			<Flex px='25px' mb="8px" justifyContent='space-between' align='center'>
-				<Text color={textColor} fontSize='22px' fontWeight='700' lineHeight='100%'>
-					Complex Table
-				</Text>
-				<Menu />
 			</Flex>
 			<Box>
 				<Table variant='simple' color='gray.500' mb='24px' mt="12px">
@@ -203,4 +198,3 @@ export default function ComplexTable(props: { tableData: any }) {
 		</Card>
 	);
 }
- 

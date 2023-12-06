@@ -27,9 +27,8 @@ export default function Project(props: {
 						{title}
 					</Text>
 					<Text fontWeight='500' color={textColorSecondary} fontSize='sm' me='4px'>
-						Project #{ranking} •{' '}
 						<Link fontWeight='500' color={brandColor} href={link} fontSize='sm'>
-							See project details
+							Подробнее
 						</Link>
 					</Text>
 				</Box>

@@ -20,7 +20,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 // Assets
 import { IoMenuOutline } from 'react-icons/io5';
 
-function Sidebar(props: { routes: RoutesType[]; [x: string]: any }) {
+export function Sidebar(props: { routes: RoutesType[]; [x: string]: any }) {
 	const { routes } = props;
 
 	let variantChange = '0.2s linear';
@@ -28,7 +28,6 @@ function Sidebar(props: { routes: RoutesType[]; [x: string]: any }) {
 	// Chakra Color Mode
 	let sidebarBg = useColorModeValue('white', 'navy.800');
 	let sidebarMargins = '0px';
-
 	// SIDEBAR
 	return (
 		<Box display={{ sm: 'none', xl: 'block' }} position='fixed' minH='100%'>
@@ -105,6 +104,3 @@ export function SidebarResponsive(props: { routes: RoutesType[] }) {
 		</Flex>
 	);
 }
-// PROPS
-
-export default Sidebar;

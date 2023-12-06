@@ -1,9 +1,8 @@
 // Chakra imports
 import { Portal, Box, useDisclosure } from '@chakra-ui/react';
-import Footer from 'components/footer/FooterAdmin';
 // Layout components
 import Navbar from 'components/navbar/NavbarAdmin';
-import Sidebar from 'components/sidebar/Sidebar';
+import {Sidebar} from 'components/sidebar/Sidebar';
 import { SidebarContext } from 'contexts/SidebarContext';
 import { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
@@ -55,7 +54,6 @@ export default function Dashboard(props: { [x: string]: any }) {
 			}
 		});
 	};
-	document.documentElement.dir = 'ltr';
 	const { onOpen } = useDisclosure();
 	return (
 		<Box>
@@ -96,13 +94,10 @@ export default function Dashboard(props: { [x: string]: any }) {
 						<Box mx='auto' p={{ base: '20px', md: '30px' }} pe='20px' minH='100vh' pt='50px'>
 							<Switch>
 								{getRoutes(routes)}
-								<Redirect from='/' to='/admin/default' />
+								<Redirect from='/' to='/admin/top-projects' />
 							</Switch>
 						</Box>
 					) : null}
-					<Box>
-						<Footer />
-					</Box>
 				</Box>
 			</SidebarContext.Provider>
 		</Box>
